@@ -98,7 +98,7 @@
   <ContentWrap>
     <el-table v-loading="loading" :data="list" @selection-change="handleRowCheckboxChange">
       <el-table-column type="selection" width="55" />
-      <el-table-column align="center" label="字典编号" prop="id" />
+      <el-table-column align="center" label="字典编号" prop="id" :width="80" />
       <el-table-column align="center" label="字典名称" prop="name" show-overflow-tooltip />
       <el-table-column align="center" label="字典类型" prop="type" width="300" />
       <el-table-column align="center" label="状态" prop="status">

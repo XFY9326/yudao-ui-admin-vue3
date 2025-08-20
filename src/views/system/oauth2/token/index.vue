@@ -1,6 +1,4 @@
 <template>
-  <doc-alert title="OAuth 2.0（SSO 单点登录)" url="https://doc.iocoder.cn/oauth2/" />
-
   <ContentWrap>
     <!-- 搜索工作栏 -->
     <el-form
@@ -18,21 +16,6 @@
           @keyup.enter="handleQuery"
           class="!w-240px"
         />
-      </el-form-item>
-      <el-form-item label="用户类型" prop="userType">
-        <el-select
-          v-model="queryParams.userType"
-          placeholder="请选择用户类型"
-          clearable
-          class="!w-240px"
-        >
-          <el-option
-            v-for="dict in getIntDictOptions(DICT_TYPE.USER_TYPE)"
-            :key="dict.value"
-            :label="dict.label"
-            :value="dict.value"
-          />
-        </el-select>
       </el-form-item>
       <el-form-item label="客户端编号" prop="clientId">
         <el-input
@@ -56,11 +39,6 @@
       <el-table-column label="访问令牌" align="center" prop="accessToken" width="300" />
       <el-table-column label="刷新令牌" align="center" prop="refreshToken" width="300" />
       <el-table-column label="用户编号" align="center" prop="userId" />
-      <el-table-column label="用户类型" align="center" prop="userType">
-        <template #default="scope">
-          <dict-tag :type="DICT_TYPE.USER_TYPE" :value="scope.row.userType" />
-        </template>
-      </el-table-column>
       <el-table-column
         label="过期时间"
         align="center"
@@ -115,7 +93,6 @@ const queryParams = reactive({
   pageNo: 1,
   pageSize: 10,
   userId: null,
-  userType: undefined,
   clientId: null
 })
 const queryFormRef = ref() // 搜索的表单

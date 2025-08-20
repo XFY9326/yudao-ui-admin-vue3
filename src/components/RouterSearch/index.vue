@@ -60,13 +60,16 @@ const options = computed(() => {
     return []
   }
   const list = routers.filter((item: any) => {
+    if (item.meta.title === '404' || item.meta.title === '403' || item.meta.title === '500') {
+      return false
+    }
     if (item.meta.title?.indexOf(value.value) > -1 || item.path.indexOf(value.value) > -1) {
       return true
     }
   })
   return list.map((item) => {
     return {
-      label: `${item.meta.title}${item.path}`,
+      label: `${item.meta.title} (${item.path})`,
       value: item.path
     }
   })

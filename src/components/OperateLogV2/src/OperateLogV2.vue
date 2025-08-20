@@ -12,11 +12,6 @@
           <el-tag class="mr-10px" type="success">{{ log.userName }}</el-tag>
           {{ log.action }}
         </div>
-        <template #dot>
-          <span :style="{ backgroundColor: getUserTypeColor(log.userType) }" class="dot-node-style">
-            {{ getDictLabel(DICT_TYPE.USER_TYPE, log.userType)[0] }}
-          </span>
-        </template>
       </el-timeline-item>
     </el-timeline>
   </div>
@@ -37,22 +32,6 @@ interface Props {
 withDefaults(defineProps<Props>(), {
   logList: () => []
 })
-
-/** 获得 userType 颜色 */
-const getUserTypeColor = (type: number) => {
-  const dict = getDictObj(DICT_TYPE.USER_TYPE, type)
-  switch (dict?.colorType) {
-    case 'success':
-      return '#67C23A'
-    case 'info':
-      return '#909399'
-    case 'warning':
-      return '#E6A23C'
-    case 'danger':
-      return '#F56C6C'
-  }
-  return '#409EFF'
-}
 </script>
 
 <style lang="scss" scoped>

@@ -1,12 +1,11 @@
 <script lang="ts" setup>
-import { resetRouter } from '@/router'
 import { deleteUserCache } from '@/hooks/web/useCache'
 import { useLockStore } from '@/store/modules/lock'
 import { useNow } from '@/hooks/web/useNow'
 import { useDesign } from '@/hooks/web/useDesign'
 import { useTagsViewStore } from '@/store/modules/tagsView'
 import { useUserStore } from '@/store/modules/user'
-import avatarImg from '@/assets/imgs/avatar.gif'
+import avatarImg from '@/assets/imgs/avatar.svg'
 
 const tagsViewStore = useTagsViewStore()
 
@@ -205,6 +204,7 @@ $error-color: #ed6f6f;
         font-size: 90px;
       }
     }
+
     @media screen and (min-width: $screen-lg) {
       span:not(.meridiem) {
         font-size: 220px;
@@ -216,6 +216,7 @@ $error-color: #ed6f6f;
         font-size: 260px;
       }
     }
+
     @media screen and (min-width: $screen-2xl) {
       span:not(.meridiem) {
         font-size: 320px;
@@ -230,7 +231,7 @@ $error-color: #ed6f6f;
     display: flex;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgb(0 0 0 / 50%);
     backdrop-filter: blur(8px);
     justify-content: center;
     align-items: center;

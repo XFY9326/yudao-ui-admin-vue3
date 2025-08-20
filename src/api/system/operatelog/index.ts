@@ -3,7 +3,6 @@ import request from '@/config/axios'
 export type OperateLogVO = {
   id: number
   traceId: string
-  userType: number
   userId: number
   userName: string
   type: string

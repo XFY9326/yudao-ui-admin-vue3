@@ -1,6 +1,4 @@
 <template>
-  <doc-alert title="邮件配置" url="https://doc.iocoder.cn/mail" />
-
   <ContentWrap>
     <!-- 搜索工作栏 -->
     <el-form
@@ -67,21 +65,6 @@
           class="!w-240px"
         />
       </el-form-item>
-      <el-form-item label="用户类型" prop="userType">
-        <el-select
-          v-model="queryParams.userType"
-          placeholder="请选择用户类型"
-          clearable
-          class="!w-240px"
-        >
-          <el-option
-            v-for="dict in getIntDictOptions(DICT_TYPE.USER_TYPE)"
-            :key="dict.value"
-            :label="dict.label"
-            :value="dict.value"
-          />
-        </el-select>
-      </el-form-item>
       <el-form-item label="发送时间" prop="sendTime">
         <el-date-picker
           v-model="queryParams.sendTime"
@@ -122,8 +105,7 @@
       <el-table-column label="接收邮箱" align="center" prop="toMail" width="200">
         <template #default="scope">
           <div>{{ scope.row.toMail }}</div>
-          <div v-if="scope.row.userType && scope.row.userId">
-            <dict-tag :type="DICT_TYPE.USER_TYPE" :value="scope.row.userType" />
+          <div v-if="scope.row.userId">
             {{ '(' + scope.row.userId + ')' }}
           </div>
         </template>
@@ -189,7 +171,6 @@ const queryParams = reactive({
   templateId: null,
   sendStatus: null,
   userId: null,
-  userType: null,
   sendTime: []
 })
 const exportLoading = ref(false) // 导出的加载中

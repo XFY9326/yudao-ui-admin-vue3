@@ -7,7 +7,6 @@ export default {
     login: '登录',
     required: '该项为必填项',
     loginOut: '退出系统',
-    document: '项目文档',
     profile: '个人中心',
     reminder: '温馨提示',
     loginOutMessage: '是否退出本系统？',
@@ -116,7 +115,6 @@ export default {
   login: {
     welcome: '欢迎使用本系统',
     message: '开箱即用的中后台管理系统',
-    tenantname: '租户名称',
     username: '用户名',
     password: '密码',
     code: '验证码',
@@ -128,7 +126,6 @@ export default {
     remember: '记住我',
     hasUser: '已有账号？去登录',
     forgetPassword: '忘记密码?',
-    tenantNamePlaceholder: '请输入租户名称',
     usernamePlaceholder: '请输入用户名',
     passwordPlaceholder: '请输入密码',
     codePlaceholder: '请输入验证码',
@@ -136,15 +133,9 @@ export default {
     mobileNumber: '手机号码',
     mobileNumberPlaceholder: '请输入手机号码',
     backLogin: '返回',
-    getSmsCode: '获取验证码',
-    btnMobile: '手机登录',
-    btnQRCode: '二维码登录',
-    qrcode: '扫描二维码登录',
     btnRegister: '注册',
-    SmsSendMsg: '验证码已发送',
     resetPassword: '重置密码',
-    resetPasswordSuccess: '重置密码成功',
-    invalidTenantName: '无效的租户名称'
+    resetPasswordSuccess: '重置密码成功'
   },
   captcha: {
     verification: '请完成安全验证',
@@ -155,68 +146,9 @@ export default {
   },
   router: {
     login: '登录',
-    socialLogin: '社交登录',
     home: '首页',
     analysis: '分析页',
     workplace: '工作台'
-  },
-  analysis: {
-    newUser: '新增用户',
-    unreadInformation: '未读消息',
-    transactionAmount: '成交金额',
-    totalShopping: '购物总量',
-    monthlySales: '每月销售额',
-    userAccessSource: '用户访问来源',
-    january: '一月',
-    february: '二月',
-    march: '三月',
-    april: '四月',
-    may: '五月',
-    june: '六月',
-    july: '七月',
-    august: '八月',
-    september: '九月',
-    october: '十月',
-    november: '十一月',
-    december: '十二月',
-    estimate: '预计',
-    actual: '实际',
-    directAccess: '直接访问',
-    mailMarketing: '邮件营销',
-    allianceAdvertising: '联盟广告',
-    videoAdvertising: '视频广告',
-    searchEngines: '搜索引擎',
-    weeklyUserActivity: '每周用户活跃量',
-    activeQuantity: '活跃量',
-    monday: '周一',
-    tuesday: '周二',
-    wednesday: '周三',
-    thursday: '周四',
-    friday: '周五',
-    saturday: '周六',
-    sunday: '周日'
-  },
-  workplace: {
-    welcome: '你好',
-    happyDay: '祝你开心每一天!',
-    toady: '今日晴',
-    notice: '通知公告',
-    project: '项目数',
-    access: '项目访问',
-    toDo: '待办',
-    introduction: '一个正经的简介',
-    shortcutOperation: '快捷入口',
-    operation: '操作',
-    index: '指数',
-    personal: '个人',
-    team: '团队',
-    quote: '引用',
-    contribution: '贡献',
-    hot: '热度',
-    yield: '产量',
-    dynamic: '动态',
-    push: '推送',
-    follow: '关注'
   },
   form: {
     input: '输入框',
@@ -275,6 +207,9 @@ export default {
   },
   watermark: {
     watermark: '水印'
+  },
+  workplace: {
+    welcome: '欢迎使用'
   },
   table: {
     table: '表格',
@@ -387,7 +322,6 @@ export default {
       // placeholder
       accountPlaceholder: '请输入账号',
       passwordPlaceholder: '请输入密码',
-      smsPlaceholder: '请输入验证码',
       mobilePlaceholder: '请输入手机号码',
       policyPlaceholder: '勾选后才能注册',
       diffPwd: '两次输入密码不一致',
@@ -395,7 +329,6 @@ export default {
       password: '密码',
       confirmPassword: '确认密码',
       email: '邮箱',
-      smsCode: '短信验证码',
       mobile: '手机号码'
     }
   },
@@ -417,8 +350,7 @@ export default {
     info: {
       title: '基本信息',
       basicInfo: '基本设置',
-      resetPwd: '密码设置',
-      userSocial: '社交绑定'
+      resetPwd: '密码设置'
     },
     rules: {
       nickname: '请输入用户昵称',

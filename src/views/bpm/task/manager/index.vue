@@ -1,6 +1,4 @@
 <template>
-  <doc-alert title="工作流手册" url="https://doc.iocoder.cn/bpm/" />
-
   <ContentWrap>
     <!-- 搜索工作栏 -->
     <el-form
@@ -87,7 +85,12 @@
           {{ formatPast2(scope.row.durationInMillis) }}
         </template>
       </el-table-column>
-      <el-table-column align="center" label="流程编号" prop="processInstanceId" :show-overflow-tooltip="true" />
+      <el-table-column
+        align="center"
+        label="流程编号"
+        prop="processInstanceId"
+        :show-overflow-tooltip="true"
+      />
       <el-table-column align="center" label="任务编号" prop="id" :show-overflow-tooltip="true" />
       <el-table-column align="center" label="操作" fixed="right" width="80">
         <template #default="scope">

@@ -296,7 +296,7 @@ const clear = () => {
 $prefix-cls: #{$namespace}-setting;
 
 .#{$prefix-cls} {
+  z-index: 1200; /* 修正没有z-index会被表格层覆盖,值不要超过4000 */
   border-radius: 6px 0 0 6px;
-  z-index: 1200;/*修正没有z-index会被表格层覆盖,值不要超过4000*/
 }
 </style>

@@ -5,7 +5,6 @@ export interface OAuth2TokenVO {
   accessToken: string
   refreshToken: string
   userId: number
-  userType: number
   clientId: string
   createTime: Date
   expiresTime: Date

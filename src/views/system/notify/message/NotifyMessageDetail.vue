@@ -4,9 +4,6 @@
       <el-descriptions-item label="编号" min-width="120">
         {{ detailData.id }}
       </el-descriptions-item>
-      <el-descriptions-item label="用户类型">
-        <dict-tag :type="DICT_TYPE.USER_TYPE" :value="detailData.userType" />
-      </el-descriptions-item>
       <el-descriptions-item label="用户编号">
         {{ detailData.userId }}
       </el-descriptions-item>

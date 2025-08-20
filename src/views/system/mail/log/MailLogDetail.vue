@@ -15,10 +15,7 @@
       </el-descriptions-item>
       <el-descriptions-item label="用户信息">
         {{ detailData.toMail }}
-        <span v-if="detailData.userType && detailData.userId">
-          <dict-tag :type="DICT_TYPE.USER_TYPE" :value="detailData.userType" />
-          ({{ detailData.userId }})
-        </span>
+        <span v-if="detailData.userId"> ({{ detailData.userId }}) </span>
       </el-descriptions-item>
       <el-descriptions-item label="邮件标题">
         {{ detailData.templateTitle }}

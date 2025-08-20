@@ -1,6 +1,4 @@
 <template>
-  <doc-alert title="OAuth 2.0（SSO 单点登录)" url="https://doc.iocoder.cn/oauth2/" />
-
   <!-- 搜索 -->
   <ContentWrap>
     <el-form
@@ -30,15 +28,22 @@
         </el-select>
       </el-form-item>
       <el-form-item>
-        <el-button @click="handleQuery"><Icon icon="ep:search" class="mr-5px" /> 搜索</el-button>
-        <el-button @click="resetQuery"><Icon icon="ep:refresh" class="mr-5px" /> 重置</el-button>
+        <el-button @click="handleQuery">
+          <Icon icon="ep:search" class="mr-5px" />
+          搜索
+        </el-button>
+        <el-button @click="resetQuery">
+          <Icon icon="ep:refresh" class="mr-5px" />
+          重置
+        </el-button>
         <el-button
           plain
           type="primary"
           @click="openForm('create')"
           v-hasPermi="['system:oauth2-client:create']"
         >
-          <Icon icon="ep:plus" class="mr-5px" /> 新增
+          <Icon icon="ep:plus" class="mr-5px" />
+          新增
         </el-button>
         <el-button
           plain
@@ -47,56 +52,81 @@
           @click="handleDeleteBatch"
           v-hasPermi="['system:oauth2-client:delete']"
         >
-          <Icon icon="ep:delete" class="mr-5px" /> 批量删除
+          <Icon icon="ep:delete" class="mr-5px" />
+          批量删除
         </el-button>
       </el-form-item>
     </el-form>
   </ContentWrap>
 
-  <!-- 列表 -->
   <ContentWrap>
-    <el-table v-loading="loading" :data="list" @selection-change="handleRowCheckboxChange">
-      <el-table-column type="selection" width="55" />
-      <el-table-column label="客户端编号" align="center" prop="clientId" />
-      <el-table-column label="客户端密钥" align="center" prop="secret" />
-      <el-table-column label="应用名" align="center" prop="name" />
-      <el-table-column label="应用图标" align="center" prop="logo">
+    <el-table v-loading="loading" :data="list" @selection-change="handleRowCheckboxChange" stripe>
+      <el-table-column type="selection" width="50" align="center" />
+      <el-table-column
+        label="客户端编号"
+        prop="clientId"
+        align="center"
+        min-width="120"
+        show-overflow-tooltip
+      />
+      <el-table-column
+        label="应用名"
+        prop="name"
+        align="center"
+        min-width="120"
+        show-overflow-tooltip
+      />
+      <el-table-column label="应用图标" align="center" width="80">
         <template #default="scope">
-          <img width="40px" height="40px" :src="scope.row.logo" />
+          <img
+            v-if="scope.row.logo"
+            :src="scope.row.logo"
+            style="width: 40px; height: 40px; border-radius: 4px; object-fit: cover"
+          />
         </template>
       </el-table-column>
-      <el-table-column label="状态" align="center" prop="status">
+      <el-table-column label="状态" align="center" prop="status" width="100">
         <template #default="scope">
           <dict-tag :type="DICT_TYPE.COMMON_STATUS" :value="scope.row.status" />
         </template>
       </el-table-column>
-      <el-table-column label="访问令牌的有效期" align="center" prop="accessTokenValiditySeconds">
+      <el-table-column
+        label="访问令牌有效期"
+        prop="accessTokenValiditySeconds"
+        align="right"
+        width="140"
+      >
         <template #default="scope">{{ scope.row.accessTokenValiditySeconds }} 秒</template>
       </el-table-column>
-      <el-table-column label="刷新令牌的有效期" align="center" prop="refreshTokenValiditySeconds">
+      <el-table-column
+        label="刷新令牌有效期"
+        prop="refreshTokenValiditySeconds"
+        align="right"
+        width="140"
+      >
         <template #default="scope">{{ scope.row.refreshTokenValiditySeconds }} 秒</template>
       </el-table-column>
-      <el-table-column label="授权类型" align="center" prop="authorizedGrantTypes">
+      <el-table-column label="授权类型" prop="authorizedGrantTypes" align="left" min-width="200">
         <template #default="scope">
           <el-tag
-            :disable-transitions="true"
+            v-for="(type, index) in scope.row.authorizedGrantTypes"
             :key="index"
-            v-for="(authorizedGrantType, index) in scope.row.authorizedGrantTypes"
-            :index="index"
-            class="mr-5px"
+            class="mr-5px mb-5px"
+            size="small"
+            type="info"
           >
-            {{ authorizedGrantType }}
+            {{ type }}
           </el-tag>
         </template>
       </el-table-column>
       <el-table-column
         label="创建时间"
-        align="center"
         prop="createTime"
+        align="center"
         width="180"
         :formatter="dateFormatter"
       />
-      <el-table-column label="操作" align="center">
+      <el-table-column label="操作" align="center" width="140" fixed="right">
         <template #default="scope">
           <el-button
             link
@@ -111,14 +141,18 @@
             type="danger"
             @click="handleDelete(scope.row.id)"
             v-hasPermi="['system:oauth2-client:delete']"
+            :disabled="ClientApi.ID_DEFAULT == scope.row.id"
           >
             删除
           </el-button>
         </template>
       </el-table-column>
     </el-table>
+
     <!-- 分页 -->
     <Pagination
+      background
+      layout="prev, pager, next, jumper, ->, total"
       :total="total"
       v-model:page="queryParams.pageNo"
       v-model:limit="queryParams.pageSize"

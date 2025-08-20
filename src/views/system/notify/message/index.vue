@@ -1,6 +1,4 @@
 <template>
-  <doc-alert title="站内信配置" url="https://doc.iocoder.cn/notify/" />
-
   <ContentWrap>
     <!-- 搜索工作栏 -->
     <el-form
@@ -18,21 +16,6 @@
           @keyup.enter="handleQuery"
           class="!w-240px"
         />
-      </el-form-item>
-      <el-form-item label="用户类型" prop="userType">
-        <el-select
-          v-model="queryParams.userType"
-          placeholder="请选择用户类型"
-          clearable
-          class="!w-240px"
-        >
-          <el-option
-            v-for="dict in getIntDictOptions(DICT_TYPE.USER_TYPE)"
-            :key="dict.value"
-            :label="dict.label"
-            :value="dict.value"
-          />
-        </el-select>
       </el-form-item>
       <el-form-item label="模板编码" prop="templateCode">
         <el-input
@@ -80,11 +63,6 @@
   <ContentWrap>
     <el-table v-loading="loading" :data="list">
       <el-table-column label="编号" align="center" prop="id" />
-      <el-table-column label="用户类型" align="center" prop="userType">
-        <template #default="scope">
-          <dict-tag :type="DICT_TYPE.USER_TYPE" :value="scope.row.userType" />
-        </template>
-      </el-table-column>
       <el-table-column label="用户编号" align="center" prop="userId" width="80" />
       <el-table-column label="模板编码" align="center" prop="templateCode" width="80" />
       <el-table-column label="发送人名称" align="center" prop="templateNickname" width="180" />
@@ -167,7 +145,6 @@ const list = ref([]) // 列表的数据
 const queryParams = reactive({
   pageNo: 1,
   pageSize: 10,
-  userType: undefined,
   userId: undefined,
   templateCode: undefined,
   templateType: undefined,

@@ -84,7 +84,7 @@ const resetAttributesList = () => {
         otherExtensionList.value.push(ex)
       }
       return ex.$type === `${prefix}:Properties`
-    }) ?? [];
+    }) ?? []
 
   // 保存所有的 扩展属性字段
   bpmnElementPropertyList.value = bpmnElementProperties.value.reduce(

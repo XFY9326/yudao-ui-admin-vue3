@@ -4,7 +4,6 @@ export interface ApiErrorLogVO {
   id: number
   traceId: string
   userId: number
-  userType: number
   applicationName: string
   requestMethod: string
   requestParams: string

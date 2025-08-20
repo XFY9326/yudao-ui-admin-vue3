@@ -4,7 +4,6 @@ import qs from 'qs'
 export interface NotifyMessageVO {
   id: number
   userId: number
-  userType: number
   templateId: number
   templateCode: string
   templateNickname: string

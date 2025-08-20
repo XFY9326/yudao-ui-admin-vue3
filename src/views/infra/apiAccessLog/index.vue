@@ -1,6 +1,4 @@
 <template>
-  <doc-alert title="系统日志" url="https://doc.iocoder.cn/system-log/" />
-
   <ContentWrap>
     <!-- 搜索工作栏 -->
     <el-form
@@ -18,21 +16,6 @@
           @keyup.enter="handleQuery"
           class="!w-240px"
         />
-      </el-form-item>
-      <el-form-item label="用户类型" prop="userType">
-        <el-select
-          v-model="queryParams.userType"
-          placeholder="请选择用户类型"
-          clearable
-          class="!w-240px"
-        >
-          <el-option
-            v-for="dict in getIntDictOptions(DICT_TYPE.USER_TYPE)"
-            :key="dict.value"
-            :label="dict.label"
-            :value="dict.value"
-          />
-        </el-select>
       </el-form-item>
       <el-form-item label="应用名" prop="applicationName">
         <el-input
@@ -93,11 +76,6 @@
     <el-table v-loading="loading" :data="list">
       <el-table-column label="日志编号" align="center" prop="id" width="100" fix="right" />
       <el-table-column label="用户编号" align="center" prop="userId" />
-      <el-table-column label="用户类型" align="center" prop="userType">
-        <template #default="scope">
-          <dict-tag :type="DICT_TYPE.USER_TYPE" :value="scope.row.userType" />
-        </template>
-      </el-table-column>
       <el-table-column label="应用名" align="center" prop="applicationName" width="150" />
       <el-table-column label="请求方法" align="center" prop="requestMethod" width="80" />
       <el-table-column label="请求地址" align="center" prop="requestUrl" width="500" />
@@ -164,7 +142,6 @@ const queryParams = reactive({
   pageNo: 1,
   pageSize: 10,
   userId: null,
-  userType: null,
   applicationName: null,
   requestUrl: null,
   duration: null,

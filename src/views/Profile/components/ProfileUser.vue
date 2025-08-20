@@ -3,7 +3,7 @@
     <div class="text-center">
       <UserAvatar :img="userInfo?.avatar" />
     </div>
-    <ul class="list-group list-group-striped">
+    <ul class="list-group list-group-striped mt-20px">
       <li class="list-group-item">
         <Icon class="mr-5px" icon="ep:user" />
         {{ t('profile.user.username') }}

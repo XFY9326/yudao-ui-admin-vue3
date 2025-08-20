@@ -8,10 +8,19 @@
       label-width="160px"
     >
       <el-form-item label="客户端编号" prop="secret">
-        <el-input v-model="formData.clientId" placeholder="请输入客户端编号" />
+        <el-input
+          v-model="formData.clientId"
+          placeholder="请输入客户端编号"
+          :disabled="ClientApi.ID_DEFAULT == formData.id"
+        />
       </el-form-item>
       <el-form-item label="客户端密钥" prop="secret">
-        <el-input v-model="formData.secret" placeholder="请输入客户端密钥" />
+        <el-input
+          v-model="formData.secret"
+          placeholder="请输入客户端密钥"
+          type="password"
+          show-password
+        />
       </el-form-item>
       <el-form-item label="应用名" prop="name">
         <el-input v-model="formData.name" placeholder="请输入应用名" />
@@ -23,7 +32,7 @@
         <el-input v-model="formData.description" placeholder="请输入应用名" type="textarea" />
       </el-form-item>
       <el-form-item label="状态" prop="status">
-        <el-radio-group v-model="formData.status">
+        <el-radio-group v-model="formData.status" :disabled="ClientApi.ID_DEFAULT == formData.id">
           <el-radio
             v-for="dict in getIntDictOptions(DICT_TYPE.COMMON_STATUS)"
             :key="dict.value"

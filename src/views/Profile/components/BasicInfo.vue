@@ -46,7 +46,7 @@ const rules = reactive<FormRules>({
     }
   ],
   mobile: [
-    { required: true, message: t('profile.rules.phone'), trigger: 'blur' },
+    { required: false, message: t('profile.rules.phone'), trigger: 'blur' },
     {
       pattern: /^1[3|4|5|6|7|8|9][0-9]\d{8}$/,
       message: t('profile.rules.truephone'),
@@ -61,13 +61,13 @@ const schema = reactive<FormSchema[]>([
     component: 'Input'
   },
   {
-    field: 'mobile',
-    label: t('profile.user.mobile'),
+    field: 'email',
+    label: t('profile.user.email'),
     component: 'Input'
   },
   {
-    field: 'email',
-    label: t('profile.user.email'),
+    field: 'mobile',
+    label: t('profile.user.mobile'),
     component: 'Input'
   },
   {

@@ -21,6 +21,8 @@ export interface OAuth2ClientVO {
   createTime: Date
 }
 
+export const ID_DEFAULT = 1
+
 // 查询 OAuth2 客户端的列表
 export const getOAuth2ClientPage = (params: PageParam) => {
   return request.get({ url: '/system/oauth2-client/page', params })
@@ -48,5 +50,8 @@ export const deleteOAuth2Client = (id: number) => {
 
 // 批量删除 OAuth2 客户端
 export const deleteOAuth2ClientList = (ids: number[]) => {
-  return request.delete({ url: '/system/oauth2-client/delete-list', params: { ids: ids.join(',') } })
+  return request.delete({
+    url: '/system/oauth2-client/delete-list',
+    params: { ids: ids.join(',') }
+  })
 }

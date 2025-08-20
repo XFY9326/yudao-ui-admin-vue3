@@ -12,7 +12,6 @@
       </el-descriptions-item>
       <el-descriptions-item label="用户信息">
         {{ detailData.userId }}
-        <dict-tag :type="DICT_TYPE.USER_TYPE" :value="detailData.userType" />
       </el-descriptions-item>
       <el-descriptions-item label="用户 IP">
         {{ detailData.userIp }}

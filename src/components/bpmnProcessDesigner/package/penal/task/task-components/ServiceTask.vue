@@ -29,7 +29,11 @@
       prop="delegateExpression"
       key="execute-delegate"
     >
-      <el-input v-model="serviceTaskForm.delegateExpression" clearable @change="updateElementTask" />
+      <el-input
+        v-model="serviceTaskForm.delegateExpression"
+        clearable
+        @change="updateElementTask"
+      />
     </el-form-item>
   </div>
 </template>
@@ -64,12 +68,12 @@ const resetTaskForm = () => {
 }
 
 const updateElementTask = () => {
-  let taskAttr = Object.create(null);
-  const type = serviceTaskForm.value.executeType;
+  let taskAttr = Object.create(null)
+  const type = serviceTaskForm.value.executeType
   for (let key in serviceTaskForm.value) {
-    if (key !== 'executeType' && key !== type) taskAttr[key] = null;
+    if (key !== 'executeType' && key !== type) taskAttr[key] = null
   }
-  taskAttr[type] = serviceTaskForm.value[type] || "";
+  taskAttr[type] = serviceTaskForm.value[type] || ''
   bpmnInstances().modeling.updateProperties(toRaw(bpmnElement.value), taskAttr)
 }
 
@@ -87,5 +91,4 @@ watch(
   },
   { immediate: true }
 )
-
 </script>

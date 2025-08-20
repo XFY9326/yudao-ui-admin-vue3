@@ -1,7 +1,4 @@
 <template>
-  <doc-alert title="功能权限" url="https://doc.iocoder.cn/resource-permission" />
-  <doc-alert title="数据权限" url="https://doc.iocoder.cn/data-permission" />
-
   <ContentWrap>
     <!-- 搜索工作栏 -->
     <el-form
@@ -96,7 +93,7 @@
   <ContentWrap>
     <el-table v-loading="loading" :data="list" @selection-change="handleRowCheckboxChange">
       <el-table-column type="selection" width="55" />
-      <el-table-column align="center" label="角色编号" prop="id" />
+      <el-table-column align="center" label="角色编号" prop="id" :width="80" />
       <el-table-column align="center" label="角色名称" prop="name" />
       <el-table-column label="角色类型" align="center" prop="type">
         <template #default="scope">
@@ -104,7 +101,7 @@
         </template>
       </el-table-column>
       <el-table-column align="center" label="角色标识" prop="code" />
-      <el-table-column align="center" label="显示顺序" prop="sort" />
+      <el-table-column align="center" label="显示顺序" prop="sort" :width="80" />
       <el-table-column align="center" label="备注" prop="remark" />
       <el-table-column align="center" label="状态" prop="status">
         <template #default="scope">

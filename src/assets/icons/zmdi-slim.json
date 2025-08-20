@@ -1,0 +1,16 @@
+{
+  "prefix": "zmdi",
+  "icons": {
+    "fullscreen": {
+      "body": "<path fill=\"currentColor\" d=\"M43 235v64h64v42H0V235zM0 149V43h107v42H43v64zm256 150v-64h43v106H192v-42zM192 43h107v106h-43V85h-64z\"/>",
+      "width": 304
+    },
+    "fullscreen-exit": {
+      "body": "<path fill=\"currentColor\" d=\"M0 277v-42h107v106H64v-64zm64-170V43h43v106H0v-42zm128 234V235h107v42h-64v64zm43-234h64v42H192V43h43z\"/>",
+      "width": 304
+    }
+  },
+  "lastModified": 1702314267,
+  "width": 432,
+  "height": 384
+}
